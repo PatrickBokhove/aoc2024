@@ -16,8 +16,6 @@ const rightValues: number[] = day1
   .map((line) => parseInt(line.split("   ")[1]))
   .sort((a, b) => a - b);
 
-const comparisons: { left: number; right: number }[] = [];
-
 let sumOfAllDiffs = 0;
 
 leftValues.forEach((leftValue, index) => {
