@@ -16,3 +16,22 @@ function sumForSection(section: string): number {
 const sumForWholeFile = sumForSection(day3);
 
 console.log("sum for whole file", sumForWholeFile);
+
+// PART 2
+const sectionsToEvaluate = [day3.slice(0, day3.indexOf("don't()"))];
+const doUntilDontRegex = /do\(\)([^]*?)don't\(\)/g;
+
+let sectionMatch;
+
+while ((sectionMatch = doUntilDontRegex.exec(day3))) {
+  const [_, section] = sectionMatch;
+  sectionsToEvaluate.push(section);
+}
+
+let sum = 0;
+
+for (const section of sectionsToEvaluate) {
+  sum += sumForSection(section);
+}
+
+console.log("sum for relevant sections", sum);
