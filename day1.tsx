@@ -4,13 +4,13 @@ import { day1 } from "./assignmentInputs";
 
 // PART 1
 
-const leftValues: number[] = day1
+const sortedLeftValues: number[] = day1
   .split("\n")
   .filter(Boolean)
   .map((line) => parseInt(line.split("   ")[0]))
   .sort((a, b) => a - b);
 
-const rightValues: number[] = day1
+const sortedRightValues: number[] = day1
   .split("\n")
   .filter(Boolean)
   .map((line) => parseInt(line.split("   ")[1]))
@@ -18,8 +18,8 @@ const rightValues: number[] = day1
 
 let sumOfAllDiffs = 0;
 
-leftValues.forEach((leftValue, index) => {
-  const rightValue = rightValues[index];
+sortedLeftValues.forEach((leftValue, index) => {
+  const rightValue = sortedRightValues[index];
   const diff = Math.abs(leftValue - rightValue);
   sumOfAllDiffs += diff;
 });
@@ -30,12 +30,12 @@ console.log("sum of all diffs", sumOfAllDiffs);
 
 let sumOfSimilarities = 0;
 
-leftValues.forEach((leftValue) => {
-  const occurencesOfLeftValueInRightValues = rightValues.filter(
+sortedLeftValues.forEach((leftValue) => {
+  const occurencesOfLeftValueInsortedRightValues = sortedRightValues.filter(
     (value) => value === leftValue
   ).length;
 
-  const similarity = occurencesOfLeftValueInRightValues * leftValue;
+  const similarity = occurencesOfLeftValueInsortedRightValues * leftValue;
   sumOfSimilarities += similarity;
 });
 
