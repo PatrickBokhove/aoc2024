@@ -55,4 +55,4 @@ inputAs2dNumberArray.forEach((line) => {
   }
 });
 
-console.log("amount of initially safe reports", amountOfSafeReports);
+console.log("amount of safe reports", amountOfSafeReports);
