@@ -1,3 +1,5 @@
+// https://adventofcode.com/2024/day/2
+
 import { day2 } from "./assignmentInputs";
 
 const inputAs2dNumberArray = day2
