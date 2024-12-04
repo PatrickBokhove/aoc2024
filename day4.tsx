@@ -114,3 +114,50 @@ for (const string of diagonalTopRightToBottomLeftStrings) {
 }
 
 console.log("total hits:", hits);
+
+// PART 2
+
+const word = "MAS";
+const wordReversed = word.split("").reverse().join("");
+let counter = 0;
+
+// Gets all possible 3x3 options from the grid
+function getAll3x3Grids(grid: string[][]): string[][][] {
+  const result: string[][][] = [];
+
+  for (let row = 0; row <= grid.length - 3; row++) {
+    for (let col = 0; col <= grid[row].length - 3; col++) {
+      const subgrid = [
+        grid[row].slice(col, col + 3),
+        grid[row + 1].slice(col, col + 3),
+        grid[row + 2].slice(col, col + 3),
+      ];
+      result.push(subgrid);
+    }
+  }
+
+  return result;
+}
+
+// Check for diagonal occurences of the word or the reversed word
+function checkForMASInRotatedGrids(grid: string[][]): boolean {
+  // Dirty hard coded cross
+  const diagonal1 = grid[2][0] + grid[1][1] + grid[0][2]; // Top right to bottom left
+  const diagonal2 = grid[0][0] + grid[1][1] + grid[2][2]; // Top left to bottom right
+
+  return (
+    (diagonal1.includes(word) || diagonal1.includes(wordReversed)) &&
+    (diagonal2.includes(word) || diagonal2.includes(wordReversed))
+  );
+}
+
+const all3x3Grids = getAll3x3Grids(inputAs2dStringArray);
+
+// Check all 3x3 grids for the word in the diagonals
+all3x3Grids.forEach((grid) => {
+  if (checkForMASInRotatedGrids(grid)) {
+    counter++;
+  }
+});
+
+console.log("amount of x masses:", counter);
