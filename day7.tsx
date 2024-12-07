@@ -5,7 +5,7 @@ import { day7 } from "./assignmentInputs";
 // PART 1
 
 const equations = day7.split("\n").filter(Boolean);
-const allowedOperators = ["+", "*"];
+const allowedOperators = ["+", "*", "||"];
 
 let sumOfSolvedValues = 0;
 
@@ -38,7 +38,11 @@ equations.forEach((line) => {
       solveEquation(
         options.slice(1),
         currentEquation + operator + options[0],
-        operator === "+" ? currentTotal + options[0] : currentTotal * options[0]
+        operator === "+"
+          ? currentTotal + options[0]
+          : operator === "*"
+          ? currentTotal * options[0]
+          : parseInt(`${currentTotal}${options[0]}`)
       );
     });
   }
