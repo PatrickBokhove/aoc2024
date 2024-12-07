@@ -4,12 +4,12 @@ import { day7 } from "./assignmentInputs";
 
 // PART 1
 
-const playingField = day7.split("\n").filter(Boolean);
+const equations = day7.split("\n").filter(Boolean);
 const allowedOperators = ["+", "*"];
 
 let sumOfSolvedValues = 0;
 
-playingField.forEach((line) => {
+equations.forEach((line) => {
   let solved = false;
   const testValue = parseInt(line.split(":")[0]);
   const options = line
