@@ -85,7 +85,6 @@ function takeStep() {
         ? "<"
         : "^";
   } else if (nextMove === "move") {
-    console.log("moving in direction", player.facing);
     previousPosition = { x: player.xPosition, y: player.yPosition };
     const nextCoordinates =
       player.facing === "^"
