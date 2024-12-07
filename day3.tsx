@@ -1,3 +1,5 @@
+// https://adventofcode.com/2024/day/3
+
 import { day3 } from "./assignmentInputs";
 
 // PART 1
