@@ -42,7 +42,7 @@ equations.forEach((line) => {
           ? currentTotal + options[0]
           : operator === "*"
           ? currentTotal * options[0]
-          : parseInt(`${currentTotal}${options[0]}`)
+          : parseInt(`${currentTotal}${options[0]}`) // PART 2
       );
     });
   }
